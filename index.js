@@ -1,7 +1,10 @@
-const { TestWatcher } = require('@jest/core');
+const { TestWatcher } = require('@jest/core');// this added itself
 const inquirer = require('inquirer');
 // const fs = require('fs');
-const { inherits } = require('util');
+const { inherits } = require('util');//idk what this is it added itself
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
 
 console.log('test to be sure its running')
 

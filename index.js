@@ -1,6 +1,7 @@
 const { TestWatcher } = require('@jest/core');// this added itself
+const { fstat } = require('fs');//added itself
 const inquirer = require('inquirer');
-// const fs = require('fs');
+const fs = require('fs');
 const { inherits } = require('util');//idk what this is it added itself
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -112,7 +113,6 @@ const internQuestions = [
 
 
 function init(){
-    //
     inquirer.prompt(questions)
     .then((answers) =>{
         console.log(answers);
@@ -128,7 +128,7 @@ function Prompts(answers){
         IPrompts();
     } else {
         console.log(EmployeeArray)
-        //function to create index.html
+        writeFile();
     }
 }
 
@@ -150,6 +150,15 @@ function IPrompts(){
     })
 }
 
+function writeFile(){
+    fs.writeFile("index.html", JSON.stringify(EmployeeArray) , (err) => {
+        if (err)
+            console.log(err);
+        else {
+            console.log("success");
+        }
+})
+};
 
 
 

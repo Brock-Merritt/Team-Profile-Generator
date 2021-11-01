@@ -6,7 +6,7 @@ const { inherits } = require('util');//idk what this is it added itself
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-
+const HTMLgen = require('./src/HTMLgen');
 console.log('test to be sure its running')
 
 
@@ -128,7 +128,7 @@ function Prompts(answers){
         IPrompts();
     } else {
         console.log(EmployeeArray)
-        writeFile();
+        return HTMLgen(EmployeeArray);
     }
 }
 
@@ -149,18 +149,6 @@ function IPrompts(){
         Prompts(answers);
     })
 }
-
-function writeFile(){
-    fs.writeFile("index.html", JSON.stringify(EmployeeArray) , (err) => {
-        if (err)
-            console.log(err);
-        else {
-            console.log("success");
-        }
-})
-};
-
-
 
 
 

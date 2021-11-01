@@ -1,5 +1,8 @@
 const index = require('../index');
+const fs= require('fs');
 
+
+function cardGen()
 
 const htmlPage = () => {
     return `
@@ -20,8 +23,10 @@ const htmlPage = () => {
             <p></p>
         </div>
         <div class ="container-xl">
-            <div class ="row">
-                <!--push array here-->
+            <div class="card text-white bg-dark mb-3" style="width:18rem;">
+                <div>
+
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
@@ -30,19 +35,26 @@ const htmlPage = () => {
 }
 
 
-    return employeeArray.map(employee =>{
+console.log(htmlPage);
 
 
 
 
-// <div class= "col-md-5">
-//     <div class ="card">
-        
-//     </div>
-// </div>
 
 
 
 
-        
+function writeFile(){
+    fs.writeFile("index.html", htmlPage , (err) => {
+        if (err)
+            console.log(err);
+        else {
+            console.log("success");
+        }
+})
+};
+
+
+
+
 module.exports = htmlPage;
